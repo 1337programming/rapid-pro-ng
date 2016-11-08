@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./load-app.component.css']
 })
 export class LoadAppComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
   }
-
+  folderChange(e) {
+    console.log(e);
+  }
 }
