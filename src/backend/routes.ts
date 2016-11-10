@@ -13,3 +13,8 @@ export const routes: IRouteConfiguration[] = [
         handler: checkPath
     }
 ];
+
+// Add /api to the beginning.
+routes.forEach(r => {
+    r.path = `/api${r.path}`;
+});

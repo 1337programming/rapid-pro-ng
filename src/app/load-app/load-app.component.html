@@ -1,3 +1,7 @@
 <h1>Select Project Directory</h1>
-<input type="text" [(ngModel)]='directory'/>
-<button (click)="load()">Load</button>
+<form [formGroup]="pathForm">
+    <input type="text" [(ngModel)]='directory' formControlName="path" />
+    <button type="submit" (click)="load()" [disabled]="!validPath">Load</button>
+</form>
+
+{{validPath}}
