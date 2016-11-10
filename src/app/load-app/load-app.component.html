@@ -1,3 +1,3 @@
-<p>Select Project Directory</p>
-<input type="file" (change)='folderChange($event.target.value)' webkitdirectory directory/>
-{{directory}}
+<h1>Select Project Directory</h1>
+<input type="text" [(ngModel)]='directory'/>
+<button (click)="load()">Load</button>
