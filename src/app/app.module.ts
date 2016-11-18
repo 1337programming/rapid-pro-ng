@@ -5,23 +5,31 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { LoadAppComponent } from './load-app/load-app.component';
+import { routes } from './app.routes';
+
+import { ProjectService } from './project/project.service';
+import { DesignPageComponent } from './design-page/design-page.component';
+import { NewAppPageComponent } from './new-app-page/new-app-page.component';
+
+const routeComponents = routes.map(r => r.component);
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoadAppComponent
+    ...routeComponents,
+    DesignPageComponent,
+    NewAppPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot([
-      { path: '', component: LoadAppComponent }
-    ])
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    ProjectService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,6 +21,6 @@ export class CheckPathService {
         return CheckPathModel.parse(res.json());
     }
     catch(err: any, caught: Observable<CheckPathModel>) {
-        return Observable.throw(err.json().error || 'Server error');
+        return Observable.throw(err.json().error || 'CheckPathService error');
     }
 }
