@@ -20,4 +20,10 @@ export class Route {
         }
         return pretty;
     }
+
+    static parse(routeLookAlike: Route): Route {
+        const route = new Route(routeLookAlike.name, routeLookAlike.path);
+        route.id = routeLookAlike.id;
+        return route;
+    }
 }

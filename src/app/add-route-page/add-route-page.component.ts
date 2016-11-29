@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router} from '@angular/router';
+
+import { ProjectService } from '../project/project.service';
+import { Route } from '../../shared/model/route.model';
 
 @Component({
   selector: 'app-add-route-page',
@@ -7,13 +11,29 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./add-route-page.component.css']
 })
 export class AddRoutePageComponent implements OnInit {
-  public loginForm = this.fb.group({
-    email: ['', Validators.required],
-    password: ['', Validators.required]
+  public addRouteForm = this.fb.group({
+    name: ['', Validators.required],
+    path: ['', Validators.required]
   });
-  constructor(public fb: FormBuilder) { }
+  constructor(
+    public fb: FormBuilder,
+    public projectService: ProjectService,
+    public router: Router) { }
 
   ngOnInit() {
   }
-
+  addRoute(value: RouteFormValue, valid: boolean) {
+    if (valid) {
+      const route = new Route(value.name, value.path);
+      const project = this.projectService.project;
+      project.routes.push(route);
+      project.currentRoute = route; 
+      this.router.navigate(['']);
+    }
+  }
 }
+
+type RouteFormValue = {
+  name: string,
+  path: string
+};

@@ -6,12 +6,10 @@ import { Project } from '../../shared/model/project.model';
   selector: 'app-design-page',
   templateUrl: './design-page.component.html',
   styleUrls: ['./design-page.component.css', './dashboard.css'],
-  providers: [
-    ProjectService
-  ]
+  providers: []
 })
 export class DesignPageComponent implements OnInit {
-  project: Project = new Project();
+  project: Project;
   constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
@@ -20,5 +18,4 @@ export class DesignPageComponent implements OnInit {
   create(componentType: string) {
 
   }
-
 }
