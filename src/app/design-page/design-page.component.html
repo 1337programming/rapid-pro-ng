@@ -1,3 +1,33 @@
-<p>
-  design-page works!
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <h2>Component</h2>
+            <h3>Toolkit</h3>
+
+            <button>Button</button>
+
+            <br>
+            <hr>
+            <h2>Routes</h2>
+            <ul class="nav nav-pills nav-stacked">
+                <li *ngFor="let r of project.routes" class="nav-item">
+                        <button
+                            [class.btn-primary]="project.currentRoute.equals(r)"
+                            [class.btn-secondary]="!project.currentRoute.equals(r)"
+                            [class.active]="project.currentRoute.equals(r)"
+                            class="btn btn-block nav-link"
+                            (click)="project.currentRoute = r">{{r.name}}</button>
+                </li>
+                <hr>
+                <button type="button" class="btn btn-secondary btn-block" routerLink="add-route">Add Route</button>
+
+            </ul>
+        </div>
+
+        <div class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main">
+            <h1>Preview {{project.currentRoute.name}}</h1>
+            <h2>Route: {{project.currentRoute.pathPretty}}</h2>
+            <hr>
+        </div>
+    </div>
+</div>

@@ -1,10 +1,12 @@
-import { RouteComponentModel } from './route-component.model';
-import { ReusableComponentModel } from './reusable-component.model';
+import { Route } from './route.model';
 
-export class ProjectModel {
-    projectName: string = 'Unnamed';
-    routeComponents: RouteComponentModel[];
-    reusableComponents: ReusableComponentModel[];
+export class Project {
+    routes: Route[];
+    currentRoute: Route;
 
-    constructor(public projectPath: string) {}
+    constructor() {
+        this.routes = [new Route('Home', ''), new Route('Login', '/login')];
+        this.currentRoute = this.routes[0];
+
+    }
 }

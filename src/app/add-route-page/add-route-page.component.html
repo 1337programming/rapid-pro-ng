@@ -1,0 +1,6 @@
+<form [formGroup]="addRouteForm" (ngSubmit)="addRoute($event)">
+  <input formControlName="name" type="text" placeholder="Route Name">
+  <input formContControl="path" type="text" placeholder="Route Path">
+  <button type="submit">Add Route</button>
+</form>
+<button type="button" class="btn btn-secondary btn-block" routerLink="">Cancel</button>

@@ -1,7 +1,0 @@
-<h1>Select Project Directory</h1>
-<p>{{loadedMessage}}</p>
-
-<form [formGroup]="pathForm">
-    <input type="text" [(ngModel)]='directory' formControlName="path" />
-    <button type="submit" (click)="load()" [disabled]="!checkPathModel.valid">{{checkPathModel.action}}</button>
-</form>

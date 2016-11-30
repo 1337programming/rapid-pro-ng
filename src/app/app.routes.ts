@@ -1,10 +1,7 @@
-import { LoadAppComponent } from './load-app/load-app.component';
-import { NewAppPageComponent } from './new-app-page/new-app-page.component';
 import { DesignPageComponent } from './design-page/design-page.component';
-
+import { AddRoutePageComponent } from './add-route-page/add-route-page.component';
 
 export const routes = [
-    { path: '', component: LoadAppComponent },
-    { path: 'new-app', component: NewAppPageComponent },
-    { path: 'design', component: DesignPageComponent }
+    { path: '', component: DesignPageComponent },
+    { path: 'add-route', component: AddRoutePageComponent }
 ];

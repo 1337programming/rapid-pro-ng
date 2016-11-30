@@ -9,7 +9,7 @@ import { routes } from './app.routes';
 
 import { ProjectService } from './project/project.service';
 import { DesignPageComponent } from './design-page/design-page.component';
-import { NewAppPageComponent } from './new-app-page/new-app-page.component';
+import { AddRoutePageComponent } from './add-route-page/add-route-page.component';
 
 const routeComponents = routes.map(r => r.component);
 
@@ -18,7 +18,7 @@ const routeComponents = routes.map(r => r.component);
     AppComponent,
     ...routeComponents,
     DesignPageComponent,
-    NewAppPageComponent
+    AddRoutePageComponent
   ],
   imports: [
     BrowserModule,
