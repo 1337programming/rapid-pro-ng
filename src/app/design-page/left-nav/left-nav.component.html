@@ -1,0 +1,21 @@
+<h2>Component</h2>
+<h3>Toolkit</h3>
+
+<button
+  *ngFor="let c of componentLinks"
+  type="button"
+  class="btn btn-secondary btn-block"
+  routerLink="create-component/{{c.type}}">{{c.title}}</button>
+
+<br>
+<hr>
+<h2>Routes</h2>
+<ul class="nav nav-pills nav-stacked">
+  <li *ngFor="let r of projectService.project.routes" class="nav-item">
+    <button [class.btn-primary]="projectService.project.currentRoute.equals(r)" [class.btn-secondary]="!projectService.project.currentRoute.equals(r)"
+      [class.active]="projectService.project.currentRoute.equals(r)" class="btn btn-block nav-link" (click)="projectService.project.currentRoute = r">{{r.name}}</button>
+  </li>
+</ul>
+
+<hr>
+<button type="button" class="btn btn-secondary btn-block" routerLink="add-route">Add Route</button>

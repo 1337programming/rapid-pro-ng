@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Project } from '../../shared/model/project.model';
 
+import { Component } from '../../shared/model/component.model';
 import { ButtonComponent } from '../../shared/model/components/button-component.model';
 
 const localStorageKey = 'current-project';
@@ -15,8 +16,7 @@ export class ProjectService {
             try {
                 const savedProject = JSON.parse(ls);
                 return Project.parse(savedProject);
-            }
-            catch (e) { }
+            } catch (e) { }
         }
         return new Project();
     }
@@ -33,7 +33,22 @@ export class ProjectService {
         localStorage.setItem(localStorageKey, JSON.stringify(this.project));
     }
 
-    createButton() {
-        this.project.currentRoute.components.push(new ButtonComponent())
+    create(type: string): void {
+        let c: Component;
+        if (type === 'button') {
+            c = new ButtonComponent();
+        }
+        switch (type) {
+            case 'button':
+                c = new ButtonComponent();
+                break;
+        }
+        if (c) {
+            this.project.currentRoute.components.push(c);
+        }
+    }
+
+    download() {
+        // TODO
     }
 }

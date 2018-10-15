@@ -10,6 +10,9 @@ import { routes } from './app.routes';
 import { ProjectService } from './project/project.service';
 import { DesignPageComponent } from './design-page/design-page.component';
 import { AddRoutePageComponent } from './add-route-page/add-route-page.component';
+import { RightNavComponent } from './design-page/right-nav/right-nav.component';
+import { LeftNavComponent } from './design-page/left-nav/left-nav.component';
+import { CreateComponentComponent } from './create-component/create-component.component';
 
 const routeComponents = routes.map(r => r.component);
 
@@ -18,7 +21,10 @@ const routeComponents = routes.map(r => r.component);
     AppComponent,
     ...routeComponents,
     DesignPageComponent,
-    AddRoutePageComponent
+    AddRoutePageComponent,
+    RightNavComponent,
+    LeftNavComponent,
+    CreateComponentComponent
   ],
   imports: [
     BrowserModule,

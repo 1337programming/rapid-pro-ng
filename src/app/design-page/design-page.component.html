@@ -1,36 +1,29 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-            <h2>Component</h2>
-            <h3>Toolkit</h3>
-
-            <button type="button" class="btn btn-secondary btn-block" (click)="projectService.createButton()">Button</button>
-
-            <br>
-            <hr>
-            <h2>Routes</h2>
-            <ul class="nav nav-pills nav-stacked">
-                <li *ngFor="let r of projectService.project.routes" class="nav-item">
-                    <button [class.btn-primary]="projectService.project.currentRoute.equals(r)" [class.btn-secondary]="!projectService.project.currentRoute.equals(r)"
-                        [class.active]="projectService.project.currentRoute.equals(r)" class="btn btn-block nav-link" (click)="projectService.project.currentRoute = r">{{r.name}}</button>
-                </li>
-            </ul>
-
-            <hr>
-            <button type="button" class="btn btn-secondary btn-block" routerLink="add-route">Add Route</button>
-            <button type="button" class="btn btn-secondary btn-block" (click)="projectService.save()">Save</button>
-            <hr>
-            <button type="button" class="btn btn-danger btn-block" (click)="projectService.reset()">Reset</button>
+            <app-left-nav></app-left-nav>
         </div>
 
-        <div class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main">
+        <div class="col-sm-6 offset-sm-3 col-md-8 offset-md-2 main">
             <h1>Preview {{projectService.project.currentRoute.name}}</h1>
             <h2>Route: {{projectService.project.currentRoute.pathPretty}}</h2>
             <button (click)="projectService.project.deleteCurrentRoute()" type="button" class="btn btn-danger">Delete</button>
             <hr>
             <div class="row" *ngFor="let c of projectService.project.currentRoute.components">
-                    <p>{{c.type}}</p>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-secondary">{{c.type}} <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+</button>
+                    <button type="button" class="btn btn-secondary"><i class="fa fa-arrow-up" aria-hidden="true"></i>
+</button>
+                    <button type="button" class="btn btn-secondary"><i class="fa fa-arrow-down" aria-hidden="true"></i>
+</button>
+                </div>
+                <hr>
             </div>
+        </div>
+
+        <div class="col-sm-3 offset-sm-9 col-md-2 offset-md-10 sidebar">
+            <app-right-nav></app-right-nav>
         </div>
     </div>
 </div>
